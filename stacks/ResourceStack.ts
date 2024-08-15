@@ -60,7 +60,7 @@ export class ResourceStack extends cdk.Stack {
     });
 
     const healthLambda = new lambda.Function(this, "health-lambda", {
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
       handler: "health.handler",
       architecture: lambda.Architecture.ARM_64,
       code: lambda.Code.fromAsset(resolve(packageDirectory, "health.zip")),

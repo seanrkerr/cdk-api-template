@@ -12,24 +12,23 @@ const folderList = fs
   .filter((item) => item.isDirectory())
   .map((item) => item.name);
 
-const entryPoints = folderList.map((item) => `${funcsd}/${item}/handler.ts`);
+const entryPoints = folderList.map((item) => `${funcsd}/${item}/${item}.handler.ts`);
 
 const zfiles = folderList.map((item) => {
-  return [`dist/${item}/handler.js`, `${item}`, `${path.dirname(__filename)}`];
+  return [`dist/${item}/${item}.handler.js`, `${item}`, `${path.dirname(__filename)}`];
 });
 
 const generateFiles = () => {
   zfiles.map(([target, name, projectPath]) => {
-    console.log(target)
     zip.addLocalFile(`${projectPath}/${target}`);
     zip.toBuffer();
-    zip.writeZip(`${target}`);
+    zip.writeZip(`dist/${name}.zip`);
   });
 };
 
 build({
   bundle: true,
-  target: "node16",
+  target: "node18",
   platform: "node",
   format: "cjs",
   outdir: "dist",
