@@ -1,12 +1,12 @@
-ARTEFACT_DIRECTORY := $(PROJECT_ROOT)/output
+ARTEFACT_DIRECTORY := $(PROJECT_ROOT)/dist
 BUILD_DIRECTORY := $(ARTEFACT_DIRECTORY)/build
-PACKAGE_DIRECTORY := $(ARTEFACT_DIRECTORY)/package
+PACKAGE_DIRECTORY := $(ARTEFACT_DIRECTORY)
 
 build: env clean ## Compile and package the code
-	npx webpack --config webpack.config.js
+	node build.js
 
 clean: ## remove output
-	rm -rf $(ARTEFACT_DIRECTORY)
+	rm -rf $(PACKAGE_DIRECTORY)
 
 lint: ## linting
 	npx eslint .
