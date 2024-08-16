@@ -1,4 +1,4 @@
-import {handler} from '../functions/health/health.handler'
+import {handler} from '../functions/health/handler'
 const eventpayload = {
     "body": "this is a test",
 } as unknown

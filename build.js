@@ -12,10 +12,10 @@ const folderList = fs
   .filter((item) => item.isDirectory())
   .map((item) => item.name);
 
-const entryPoints = folderList.map((item) => `${funcsd}/${item}/${item}.handler.ts`);
+const entryPoints = folderList.map((item) => `${funcsd}/${item}/handler.ts`);
 
 const zfiles = folderList.map((item) => {
-  return [`dist/${item}/${item}.handler.js`, `${item}`, `${path.dirname(__filename)}`];
+  return [`dist/${item}/handler.js`, `${item}`, `${path.dirname(__filename)}`];
 });
 
 const generateFiles = () => {
