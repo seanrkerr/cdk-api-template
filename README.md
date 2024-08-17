@@ -1,9 +1,9 @@
 # CDK Api template
 
 ## local running 
-as an example you can do something like this:
+As an example you can do something like this:
 
-`npx tsx health.local.ts`
+`npx tsx ./src/test/health.local.ts`
 
 ## Useful commands
 
